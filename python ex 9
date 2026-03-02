@@ -1,0 +1,13 @@
+a="hai"
+b="HELLO"
+c="cse3"
+d="i like python"
+print(a.islower())
+print(b.isupper())
+print(c.isalpha())
+print(d.isdigit())
+print(a.upper())
+print(b.lower())
+print(c.isalnum())
+print(d.replace("python","java"))
+print(d.find("like"))
