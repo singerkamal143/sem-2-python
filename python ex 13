@@ -1,0 +1,17 @@
+a={"name":"kamal","age":17}
+print(a)
+a["marks"]=99
+print(a)
+print(a["name"])
+print(a.get("name"))
+a.pop("age")
+print(a)
+del a["marks"]
+print(a)
+a.clear()
+print(a)
+b={1:100,2:200,3:18}
+s=0
+for i in b:
+    s=s+b[i]
+print("sum",s)
