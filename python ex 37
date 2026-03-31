@@ -1,0 +1,61 @@
+# Program to store student details using list of dictionaries
+
+students = []
+
+n = int(input("Enter number of students: "))
+
+# Input details
+for i in range(n):
+    print("\nEnter details for student", i+1)
+    
+    name = input("Enter name: ")
+    m1 = float(input("Enter marks of Subject 1: "))
+    m2 = float(input("Enter marks of Subject 2: "))
+    m3 = float(input("Enter marks of Subject 3: "))
+    
+    total = m1 + m2 + m3
+    avg = total / 3
+
+    student = {
+        "name": name,
+        "marks": [m1, m2, m3],
+        "total": total,
+        "average": avg
+    }
+
+    students.append(student)
+
+# Top scorer
+top = students[0]
+for s in students:
+    if s["total"] > top["total"]:
+        top = s
+
+# Average marks of all students
+total_avg = 0
+for s in students:
+    total_avg += s["average"]
+
+class_avg = total_avg / n
+
+# Students who failed (marks < 40 in any subject)
+failed_students = []
+for s in students:
+    if any(mark < 40
+           for mark in s["marks"]):
+        failed_students.append(s["name"])
+
+# Display results
+print("\n--- Results ---")
+
+print("\nTop Scorer:")
+print("Name:", top["name"], "| Total:", top["total"])
+
+print("\nAverage Marks of Students:", class_avg)
+
+print("\nStudents Who Failed:")
+if failed_students:
+    for name in failed_students:
+        print(name)
+else:
+    print("No student failed")
